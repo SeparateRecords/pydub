@@ -12,17 +12,10 @@ from .utils import mediainfo_json, fsdecode
 import base64
 from collections import namedtuple
 
-try:
-    from StringIO import StringIO
-except:
-    from io import StringIO
 
-from io import BytesIO
+from io import StringIO, BytesIO
 
-try:
-    from itertools import izip
-except:
-    izip = zip
+izip = zip
 
 from .utils import (
     _fd_or_path_or_tempfile,
