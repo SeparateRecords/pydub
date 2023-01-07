@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pydub"
+dynamic = ["version"]
+description = "Manipulate audio with an simple and easy high level interface"
+license = "MIT"
+authors = [
+    { name = "James Robert", email = "jiaaro@gmail.com" },
+]
+keywords = [
+    "audio",
+    "high-level",
+    "sound",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+    "Topic :: Multimedia :: Sound/Audio :: Conversion",
+    "Topic :: Multimedia :: Sound/Audio :: Editors",
+    "Topic :: Multimedia :: Sound/Audio :: Mixers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "http://pydub.com"
+
+[tool.hatch.version]
+path = "pydub/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/pydub",
+]
