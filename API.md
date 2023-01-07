@@ -1,6 +1,8 @@
 # API Documentation
 
-This document is a work in progress.
+This document is out of date and will not be updated until the refactor is complete
+
+---
 
 If you're looking for some functionality in particular, it's a good idea to take a look at the [source code](https://github.com/jiaaro/pydub). Core functionality is mostly in `pydub/audio_segment.py` – a number of `AudioSegment` methods are in the `pydub/effects.py` module, and added to `AudioSegment` via the effect registration process (the `register_pydub_effect()` decorator function)
 

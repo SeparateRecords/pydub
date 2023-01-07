@@ -1,17 +1,29 @@
-# Pydub [![Build Status](https://travis-ci.org/jiaaro/pydub.svg?branch=master)](https://travis-ci.org/jiaaro/pydub) [![Build status](https://ci.appveyor.com/api/projects/status/gy1ucp9o5khq7fqi/branch/master?svg=true)](https://ci.appveyor.com/project/jiaaro/pydub/branch/master)
+# Pydub fork
+
+An experimental refactor to
+
+- modernize and clean up the code
+- make it faster
+- drop support for legacy python versions
+- add first-class type annotations
+- fight my burnout
+
+There's no guarantee that I'll ever finish this, but I hope that I can at least get it to where it's usable!
+
+---
 
 Pydub lets you do stuff to audio in a way that isn't stupid.
 
 **Stuff you might be looking for**:
- - [Installing Pydub](https://github.com/jiaaro/pydub#installation)
- - [API Documentation](https://github.com/jiaaro/pydub/blob/master/API.markdown)
- - [Dependencies](https://github.com/jiaaro/pydub#dependencies)
- - [Playback](https://github.com/jiaaro/pydub#playback)
- - [Setting up ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)
- - [Questions/Bugs](https://github.com/jiaaro/pydub#bugs--questions)
- 
 
-##  Quickstart
+- [Installing Pydub](https://github.com/jiaaro/pydub#installation)
+- [API Documentation](https://github.com/jiaaro/pydub/blob/master/API.markdown)
+- [Dependencies](https://github.com/jiaaro/pydub#dependencies)
+- [Playback](https://github.com/jiaaro/pydub#playback)
+- [Setting up ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)
+- [Questions/Bugs](https://github.com/jiaaro/pydub#bugs--questions)
+
+## Quickstart
 
 Open a WAV file
 
@@ -112,16 +124,16 @@ Save the results with tags (metadata)
 awesome.export("mashup.mp3", format="mp3", tags={'artist': 'Various artists', 'album': 'Best of 2011', 'comments': 'This album is awesome!'})
 ```
 
-You can pass an optional bitrate argument to export using any syntax ffmpeg 
+You can pass an optional bitrate argument to export using any syntax ffmpeg
 supports.
 
 ```python
 awesome.export("mashup.mp3", format="mp3", bitrate="192k")
 ```
 
-Any further arguments supported by ffmpeg can be passed as a list in a 
-'parameters' argument, with switch first, argument second. Note that no 
-validation takes place on these parameters, and you may be limited by what 
+Any further arguments supported by ffmpeg can be passed as a list in a
+'parameters' argument, with switch first, argument second. Note that no
+validation takes place on these parameters, and you may be limited by what
 your particular build of ffmpeg/avlib supports.
 
 ```python
@@ -135,7 +147,7 @@ awesome.export("mashup.mp3", format="mp3", parameters=["-ac", "2", "-vol", "150"
 ## Debugging
 
 Most issues people run into are related to converting between formats using
-ffmpeg/avlib. Pydub provides a logger that outputs the subprocess calls to 
+ffmpeg/avlib. Pydub provides a logger that outputs the subprocess calls to
 help you track down issues:
 
 ```python
@@ -150,14 +162,14 @@ subprocess.call(['ffmpeg', '-y', '-i', '/var/folders/71/42k8g72x4pq09tfp920d033r
 <pydub.audio_segment.AudioSegment object at 0x101b43e10>
 ```
 
-Don't worry about the temporary files used in the conversion. They're cleaned up 
+Don't worry about the temporary files used in the conversion. They're cleaned up
 automatically.
 
 ## Bugs & Questions
 
-You can file bugs in our [github issues tracker](https://github.com/jiaaro/pydub/issues), 
-and ask any technical questions on 
-[Stack Overflow using the pydub tag](http://stackoverflow.com/questions/ask?tags=pydub). 
+You can file bugs in our [github issues tracker](https://github.com/jiaaro/pydub/issues),
+and ask any technical questions on
+[Stack Overflow using the pydub tag](http://stackoverflow.com/questions/ask?tags=pydub).
 We keep an eye on both.
 
 ## Installation
@@ -176,24 +188,24 @@ Or install the latest dev version from github (or replace `@master` with a [rele
 
 -OR-
 
-Copy the pydub directory into your python path. Zip 
+Copy the pydub directory into your python path. Zip
 [here](https://github.com/jiaaro/pydub/zipball/master)
 
 ## Dependencies
 
-You can open and save WAV files with pure python. For opening and saving non-wav 
-files – like mp3 – you'll need [ffmpeg](http://www.ffmpeg.org/) or 
+You can open and save WAV files with pure python. For opening and saving non-wav
+files – like mp3 – you'll need [ffmpeg](http://www.ffmpeg.org/) or
 [libav](http://libav.org/).
 
 ### Playback
 
 You can play audio if you have one of these installed (simpleaudio _strongly_ recommended, even if you are installing ffmpeg/libav):
 
- - [simpleaudio](https://simpleaudio.readthedocs.io/en/latest/)
- - [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/docs/#)
- - ffplay (usually bundled with ffmpeg, see the next section)
- - avplay (usually bundled with libav, see the next section)
- 
+- [simpleaudio](https://simpleaudio.readthedocs.io/en/latest/)
+- [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/docs/#)
+- ffplay (usually bundled with ffmpeg, see the next section)
+- avplay (usually bundled with libav, see the next section)
+
 ```python
 from pydub import AudioSegment
 from pydub.playback import play
@@ -240,7 +252,6 @@ Windows:
 
 `AudioSegment` objects are [immutable](http://www.devshed.com/c/a/Python/String-and-List-Python-Object-Types/1/)
 
-
 ### Ogg exporting and default codecs
 
 The Ogg specification ([http://tools.ietf.org/html/rfc5334](rfc5334)) does not specify
@@ -260,7 +271,7 @@ song.export("out.ogg", format="ogg", codec="libvorbis")
 
 ## Example Use
 
-Suppose you have a directory filled with *mp4* and *flv* videos and you want to convert all of them to *mp3* so you can listen to  them on your mp3 player.
+Suppose you have a directory filled with _mp4_ and _flv_ videos and you want to convert all of them to _mp3_ so you can listen to them on your mp3 player.
 
 ```python
 import os
@@ -330,4 +341,3 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
