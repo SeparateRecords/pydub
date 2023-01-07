@@ -1,15 +1,8 @@
-try:
-    from __builtin__ import max as builtin_max
-    from __builtin__ import min as builtin_min
-except ImportError:
-    from builtins import max as builtin_max
-    from builtins import min as builtin_min
+from builtins import max as builtin_max
+from builtins import min as builtin_min
 import math
 import struct
-try:
-    from fractions import gcd
-except ImportError:  # Python 3.9+
-    from math import gcd
+from math import gcd
 from ctypes import create_string_buffer
 
 

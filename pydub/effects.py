@@ -12,8 +12,7 @@ from .utils import (
 from .silence import split_on_silence
 from .exceptions import TooManyMissingFrames, InvalidDuration
 
-if sys.version_info >= (3, 0):
-    xrange = range
+xrange = range
 
 
 @register_pydub_effect

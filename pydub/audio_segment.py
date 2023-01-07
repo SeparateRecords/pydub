@@ -35,10 +35,9 @@ from .exceptions import (
     MissingAudioParameter,
 )
 
-if sys.version_info >= (3, 0):
-    basestring = str
-    xrange = range
-    StringIO = BytesIO
+basestring = str
+xrange = range
+StringIO = BytesIO
 
 
 class ClassPropertyDescriptor(object):
